@@ -1,0 +1,187 @@
+/*
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ * 
+ * Responsive and dynamic styling for modern web application
+ */
+
+/* ---- Base Rules ---- */
+body {
+    background: rgb(136,203,171);
+    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: #4CAF50;
+    width: 0;
+    z-index: 100;
+    transition: width 0.2s ease;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 3em;
+    margin: 2em 1rem;
+    text-align: center;
+}
+
+h2 {
+    border-bottom: 1px solid #cc1;
+    font-family: 'Oxygen', Sans-Serif;
+    font-size: 3em;
+    color: #fff;
+}
+
+/* ---- Layout Rules ---- */
+main {
+    margin: 10vh 1em 10vh;
+}
+
+section {
+    position: relative;
+    min-height: 80vh;
+    padding: 2em;
+    margin-bottom: 2em;
+    transition: background 0.3s ease;
+}
+
+/* Navigation Styles */
+.page__header {
+    background: rgba(255,255,255,0.95);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar__list {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__list li {
+    margin: 0 10px;
+}
+
+.menu__link {
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.menu__link:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.menu__link.active-link {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Section Active States */
+section.active-section {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar__list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar__list li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu__link {
+        border-bottom: 1px solid #ddd;
+    }
+
+    section {
+        min-height: 60vh;
+        padding: 1em;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 50;
+}
+
+#back-to-top:hover {
+    opacity: 1;
+}
+
+/* Landing Container Styles */
+.landing__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+/* Decorative Background Circles */
+section:nth-of-type(odd) .landing__container::before,
+section:nth-of-type(even) .landing__container::before {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.187);
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+section:nth-of-type(odd) .landing__container::before {
+    width: 20vh;
+    height: 20vh;
+    top: 10%;
+    left: -10%;
+}
+
+section:nth-of-type(even) .landing__container::before {
+    width: 15vh;
+    height: 15vh;
+    top: 20%;
+    right: -10%;
+}
